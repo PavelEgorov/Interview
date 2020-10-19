@@ -1,38 +1,36 @@
 package com.first.polygonteam.interview
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
+import com.first.polygonteam.interview.lesson1.ConvertToFahrenheit
+import com.first.polygonteam.interview.lesson1.Converter
+
 
 class MainActivity : AppCompatActivity() {
+    private var sourceText // Элемент с входным значением, которое надо сконвертировать
+            : EditText? = null
+    private var destText // Элемент с результирующим значением
+            : EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-    }
+        sourceText = findViewById(R.id.celsiusValue) as EditText
+        destText = findViewById(R.id.fahrenheitValue) as EditText
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+        val btn = findViewById(R.id.toFahrenheitButton) as Button
+        btn.setOnClickListener({
+            // получить входное значение
+            val sourceValue = sourceText!!.text.toString().toFloat()
+            // инстанцировать конвертер
+            val converter = Converter(sourceValue)
+            // преобразовать, обратите внимание на параметр ConvertToFahrenheit
+            val destValue: Float = converter.Convert(ConvertToFahrenheit()).GetResult()
+            // записать результат в элемент
+            destText!!.setText(String.format("%.02f", destValue))
+        })
     }
 }
