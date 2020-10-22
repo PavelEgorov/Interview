@@ -2,10 +2,12 @@ package com.first.polygonteam.interview.lesson2.report;
 
 import java.util.*;
 class PrintReport implements OutputMethod{
-    public void output(List<? extends ReportItem> items){
+    public void output(IReport report){
         System.out.println("Output to printer");
-        for(ReportItem item : items){
-            System.out.format("printer %s - %f \n\r", item.getDescription(), item.getAmount());
+        if (!(report.getItems() == null)) {
+            for (IReportItems item : report.getItems()) {
+                System.out.format("printer %s - %f \n\r", item.getDescription(), item.getAmount());
+            }
         }
     }
 }
