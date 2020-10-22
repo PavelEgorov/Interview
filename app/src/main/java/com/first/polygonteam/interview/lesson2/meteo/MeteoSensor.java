@@ -1,4 +1,4 @@
-package com.first.polygonteam.interview.lesson2;
+package com.first.polygonteam.interview.lesson2.meteo;
 
 import java.time.*;
 public interface MeteoSensor{

@@ -1,11 +1,11 @@
-package com.first.polygonteam.interview.lesson2;
+package com.first.polygonteam.interview.lesson2.meteo;
 
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
 import java.time.*;
-public class MS200 implements MeteoSensor{
+public class MS200 implements MeteoSensor {
     int id;
 
     public MS200(int id){

@@ -1,4 +1,4 @@
-package com.first.polygonteam.interview.lesson2;
+package com.first.polygonteam.interview.lesson2.meteo;
 
 public class MeteoStation{
     private static Integer startIdST500 = 1000;
