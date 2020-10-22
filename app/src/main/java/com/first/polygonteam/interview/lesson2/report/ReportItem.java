@@ -1,8 +1,7 @@
 package com.first.polygonteam.interview.lesson2.report;
 
-class ReportItem{
+class ReportItem implements IReportItems{
     private String description;
-
     private float amount;
 
     public ReportItem(String description, float amount){
@@ -12,7 +11,7 @@ class ReportItem{
     public String getDescription(){
         return description;
     }
-    public float getAmount(){
+    public Float getAmount(){
         return amount;
     }
 }
