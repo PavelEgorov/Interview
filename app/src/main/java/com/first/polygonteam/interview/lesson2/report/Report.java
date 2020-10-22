@@ -3,6 +3,11 @@ package com.first.polygonteam.interview.lesson2.report;
 import java.util.*;
 class Report{
     private List<ReportItem> items; // Отчетные данные
+    private OutputMethod method;
+
+    public Report(OutputMethod method){
+        this.method = method;
+    }
 
     // расчет отчетных данных
     public void calculate(){
@@ -12,7 +17,6 @@ class Report{
     }
 
     public void output(){
-        PrintReport reportPrint = new PrintReport();
-        reportPrint.output(items);
+        method.output(items);
     }
 }
